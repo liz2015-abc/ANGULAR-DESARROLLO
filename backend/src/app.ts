@@ -1,0 +1,11 @@
+import express from 'express';
+import cors from 'cors';
+import usuarioRoutes from './routes/usuario.routes';
+import { errorHandler } from './middleware/error.middleware';
+const app = express();
+app.use(cors());
+app.use(express.json());
+app.get('/api/v1/health', (_req, res) => res.json({status:'OK'}));
+app.use('/api/v1/usuario', usuarioRoutes);
+app.use(errorHandler);
+export default app;

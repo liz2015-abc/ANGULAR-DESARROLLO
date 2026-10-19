@@ -1,0 +1,12 @@
+<section class="contenido">
+  <h1>Inventario</h1>
+  <p>Cantidades disponibles por prenda (datos de ejemplo).</p>
+  <table>
+    <thead><tr><th>ID</th><th>Prenda</th><th>Talla</th><th>Cantidad disponible</th></tr></thead>
+    <tbody>
+      @for (item of existencias; track item.id) {
+        <tr><td>{{ item.id }}</td><td>{{ item.nombre }}</td><td>{{ item.talla }}</td><td>{{ item.cantidad }}</td></tr>
+      }
+    </tbody>
+  </table>
+</section>

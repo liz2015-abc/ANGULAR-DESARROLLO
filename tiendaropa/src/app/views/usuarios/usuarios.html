@@ -1,0 +1,8 @@
+<h1>Usuarios - Tienda de Ropa</h1>
+<p>Datos de ejemplo consultados desde el backend.</p>
+@if (registros$ | async; as registros) {
+  <table border="1" cellpadding="10" cellspacing="0">
+    <thead><tr><th>Nombre</th><th>Correo</th></tr></thead>
+    <tbody>@for (item of registros; track item.id) {<tr><td>{{ item.nombre }}</td><td>{{ item.email }}</td></tr>}</tbody>
+  </table>
+} @else { <p>Esperando respuesta del backend (http://localhost:3000)...</p> }
