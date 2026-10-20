@@ -1,0 +1,25 @@
+<h1>Listado de Perritos</h1>
+
+<p>Información consultada desde el backend Node.js.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Color</th>
+      <th>Edad</th>
+      <th>Raza</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let perrito of perritos">
+      <td>{{ perrito.id }}</td>
+      <td>{{ perrito.nombre }}</td>
+      <td>{{ perrito.color }}</td>
+      <td>{{ perrito.edad }}</td>
+      <td>{{ perrito.raza }}</td>
+    </tr>
+  </tbody>
+</table>

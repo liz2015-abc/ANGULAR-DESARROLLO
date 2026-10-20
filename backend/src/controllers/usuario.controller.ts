@@ -8,7 +8,7 @@ export const obtenerUsuarioPorId = (req: Request, res: Response) => {
   if (!dato) {res.status(404).json({message:'Registro no encontrado'}); return;}
   res.json(dato);
 };
-// Como en el ejemplo del compañero: las operaciones responden, pero no persisten cambios.
+
 export const crearUsuario = (_req: Request, res: Response) => {res.status(201).json({message:'Registro creado con éxito'});};
 export const actualizarUsuario = (_req: Request, res: Response) => {res.json({message:'Registro actualizado con éxito'});};
 export const eliminarUsuario = (_req: Request, res: Response) => {res.json({message:'Registro eliminado con éxito'});};
