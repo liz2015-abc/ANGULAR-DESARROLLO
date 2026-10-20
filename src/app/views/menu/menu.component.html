@@ -1,0 +1,34 @@
+@let isHandset = this.isHandset();
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="isHandset ? 'dialog' : 'navigation'"
+    [mode]="isHandset ? 'over' : 'side'"
+    [opened]="isHandset === false"
+  >
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+     <a mat-list-item routerLink="/inicio">Inicio</a>
+     <a mat-list-item routerLink="/prendas">Prendas</a>
+     <a mat-list-item routerLink="/inventario">Inventario</a>
+     <a mat-list-item routerLink="/usuarios">Usuarios</a>
+     <a mat-list-item routerLink="/compras">Compras</a>
+     <a mat-list-item routerLink="/ventas">Ventas</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar style="background-color: rgb(0, 153, 255);">
+      @if (isHandset) {
+        <button type="button" aria-label="Toggle sidenav" matIconButton (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      }
+      <span>TIENDA ONLINE ROPA</span>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
