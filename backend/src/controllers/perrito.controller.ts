@@ -1,30 +1,33 @@
 import { Request, Response } from 'express';
-import { pool } from '../db';
+import {
+  consultarPerritos,
+  guardarPerrito
+} from '../models/perrito.model';
 
-// GET: consultar todos los perritos
 export const obtenerPerritos = async (
-  req: Request,
+  _req: Request,
   res: Response
 ): Promise<void> => {
   try {
-    const resultado = await perritosModel.obtenerPerritos();
+    const perritos = await consultarPerritos();
 
-    res.json(resultado.rows);
+    res.status(200).json(perritos);
 
   } catch (error) {
-    console.error(error);
+    console.error('Error al consultar perritos:', error);
+
     res.status(500).json({
       message: 'Error al consultar los perritos'
     });
   }
 };
 
-// POST: crear un perrito
 export const crearPerrito = async (
   req: Request,
   res: Response
 ): Promise<void> => {
   try {
+    // Recibe los datos del frontend
     const { nombre, color, edad, raza } = req.body;
 
     if (
@@ -39,19 +42,22 @@ export const crearPerrito = async (
       return;
     }
 
-    const resultado = await pool.query(
-      `INSERT INTO perritos (nombre, color, edad, raza)
-       VALUES ($1, $2, $3, $4)
-       RETURNING *`,
-      [nombre, color, edad, raza]
-    );
+    // Envía la información al modelo
+    const nuevoPerrito = await guardarPerrito({
+      nombre: nombre.trim(),
+      color: color.trim(),
+      edad,
+      raza: raza.trim()
+    });
 
-    res.status(201).json(resultado.rows[0]);
+    // Devuelve el registro creado
+    res.status(201).json(nuevoPerrito);
 
   } catch (error) {
-    console.error(error);
+    console.error('Error al guardar perrito:', error);
+
     res.status(500).json({
-      message: 'Error al crear el perrito'
+      message: 'Error al guardar el perrito'
     });
   }
 };
