@@ -16,6 +16,14 @@
      <a mat-list-item routerLink="/inventario">Inventario</a>
      <a mat-list-item routerLink="/usuarios">Usuarios</a>
     </mat-nav-list>
+
+    <!-- Botón para salir, ubicado en la parte inferior del menú -->
+    <div class="cerrar-sesion">
+      <button type="button" mat-stroked-button (click)="cerrarSesion()">
+        <mat-icon>logout</mat-icon>
+        Cerrar sesión
+      </button>
+    </div>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar style="background-color: rgb(0, 153, 255);">

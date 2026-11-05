@@ -10,6 +10,19 @@
   background: inherit;
 }
 
+/* Botón "Cerrar sesión" fijo en la parte inferior del menú lateral */
+.cerrar-sesion {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+}
+
+.cerrar-sesion button {
+  width: 100%;
+  color: rgb(0, 153, 255);
+}
+
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;

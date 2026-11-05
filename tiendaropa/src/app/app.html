@@ -1,3 +1,7 @@
-<app-menu>
-  
-</app-menu>
+@if (mostrarMenu()) {
+  <!-- Vistas normales: el menú lateral contiene su propio router-outlet -->
+  <app-menu></app-menu>
+} @else {
+  <!-- Login y Registro: se muestran sin menú -->
+  <router-outlet></router-outlet>
+}

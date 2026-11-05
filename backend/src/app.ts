@@ -3,6 +3,7 @@ import cors from 'cors';
 import usuarioRoutes from './routes/usuario.routes';
 import perritoRoutes from './routes/perrito.routes';
 import { errorHandler } from './middleware/error.middleware';
+import authRoutes from './routes/auth.routes';
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.get('/api/v1/health', (_req, res) => {
 // Rutas
 app.use('/api/v1/usuario', usuarioRoutes);
 app.use('/api/perritos', perritoRoutes);
+app.use('/api/v1/auth', authRoutes);
 
 // Manejo de errores
 app.use(errorHandler);

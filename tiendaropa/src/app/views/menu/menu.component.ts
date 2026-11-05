@@ -8,7 +8,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -24,4 +24,11 @@ export class MenuComponent {
     this.breakpointObserver.observe(Breakpoints.Handset).pipe(map((result) => result.matches)),
     { initialValue: false },
   );
+
+  private router = inject(Router);
+
+  // El login no guarda datos del usuario, así que solo regresamos a /login
+  cerrarSesion(): void {
+    this.router.navigate(['/login']);
+  }
 }
