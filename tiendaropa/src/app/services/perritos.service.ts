@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface Perrito {
   id: number;
@@ -17,7 +18,7 @@ export class PerritosService {
 
   private http = inject(HttpClient);
 
-  private url = 'http://localhost:3000/api/perritos';
+  private url = `${environment.apiUrl}/api/perritos`;
 
   getPerritos(): Observable<Perrito[]> {
     return this.http.get<Perrito[]>(this.url);

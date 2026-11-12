@@ -1,11 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { PerritosService, Perrito } from '../../services/perritos.service';
+import { TablaGenerica } from '../../components/tabla-generica/tabla-generica';
 
 @Component({
   selector: 'app-perritos',
   standalone: true,
-  imports: [CommonModule],
+  imports: [TablaGenerica],
   templateUrl: './perritos.html',
   styleUrl: './perritos.css'
 })
@@ -14,6 +14,9 @@ export class Perritos implements OnInit {
   private perritosService = inject(PerritosService);
 
   perritos: Perrito[] = [];
+
+  titulos = ['ID', 'Nombre', 'Color', 'Edad', 'Raza'];
+  columnas = ['id', 'nombre', 'color', 'edad', 'raza'];
 
   ngOnInit(): void {
     this.obtenerPerritos();

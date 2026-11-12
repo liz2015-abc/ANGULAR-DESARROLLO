@@ -1,7 +1,3 @@
-import { Component } from '@angular/core';
-import {MatTableModule} from '@angular/material/table';
-
-
 export interface Prenda {
   nombre: string;
   id: number;
@@ -21,13 +17,3 @@ export const PRENDAS_DATA: Prenda[] = [
   {id: 9, nombre: 'Short denim', precio: 60000, talla: 'M'},
   {id: 10, nombre: 'Camisa manga larga', precio: 85000, talla: 'L'},
 ];
-
-@Component({
-  imports: [MatTableModule],
-  selector: 'app-tabla',
-  styleUrl: './tabla.css',
-  templateUrl: './tabla.html',
-})
-
-export class Tabla {displayedColumns: string[] = ['nombre', 'id', 'precio', 'talla'];
- datos = PRENDAS_DATA;}

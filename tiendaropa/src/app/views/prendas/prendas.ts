@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
-import { Tabla } from '../../components/tabla/tabla';
+import { PRENDAS_DATA } from '../../models/prendas';
+import { TablaGenerica } from '../../components/tabla-generica/tabla-generica';
 
 @Component({
-  imports: [Tabla],
+  imports: [TablaGenerica],
   selector: 'app-prendas',
   styleUrl: './prendas.css',
   templateUrl: './prendas.html',
 })
-export class Prendas {}
+export class Prendas {
+  titulos = ['Nombre', 'Id', 'Precio', 'Talla'];
+  columnas = ['nombre', 'id', 'precio', 'talla'];
+  prendas = PRENDAS_DATA;
+}

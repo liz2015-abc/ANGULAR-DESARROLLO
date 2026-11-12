@@ -7,7 +7,7 @@
   border-radius: 8px;
 }
 
-form {
+.formulario {
   display: flex;
   flex-direction: column;
   gap: 8px;

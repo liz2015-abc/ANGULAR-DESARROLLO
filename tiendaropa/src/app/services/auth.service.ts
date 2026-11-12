@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface UsuarioAuth {
   id: number;
@@ -19,7 +20,7 @@ export interface RespuestaAuth {
 export class AuthService {
   private http = inject(HttpClient);
 
-  private url = 'http://localhost:3000/api/v1/auth';
+  private url = `${environment.apiUrl}/api/v1/auth`;
 
   registrar(nombre: string, email: string, password: string): Observable<RespuestaAuth> {
     return this.http.post<RespuestaAuth>(

@@ -9,8 +9,6 @@ import { MenuComponent } from './views/menu/menu.component';
   templateUrl: './app.html',
 })
 export class App {
-  protected readonly title = signal('tiendaropa');
-
   private router = inject(Router);
 
   // true = se muestra el menú lateral; false = se oculta (login y registro)
