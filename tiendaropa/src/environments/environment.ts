@@ -1,3 +1,3 @@
 export const environment = {
-  apiUrl: 'https://URL-DEL-BACKEND.up.railway.app'
+  apiUrl: 'https://angular-desarrollo-production.up.railway.app'
 };
