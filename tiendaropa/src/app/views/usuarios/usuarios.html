@@ -1,5 +1,9 @@
-<h1>Usuarios - Tienda de Ropa</h1>
-<p>Datos de ejemplo consultados desde el backend.</p>
-@if (registros$ | async; as registros) {
-  <app-tabla-generica [titulos]="titulos" [columnas]="columnas" [datos]="registros"></app-tabla-generica>
-} @else { <p>Esperando respuesta del backend (http://localhost:3000)...</p> }
+<section class="contenido">
+  <h1>Usuarios - Tienda de Ropa</h1>
+  <p>Usuarios registrados en la base de datos.</p>
+  @if (registros$ | async; as registros) {
+    <app-tabla-generica [titulos]="titulos" [columnas]="columnas" [datos]="registros"></app-tabla-generica>
+  } @else {
+    <p>Esperando respuesta del backend (http://localhost:3000)...</p>
+  }
+</section>

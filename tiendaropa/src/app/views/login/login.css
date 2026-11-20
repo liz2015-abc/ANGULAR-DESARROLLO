@@ -1,10 +1,29 @@
-.contenedor {
-  max-width: 360px;
-  margin: 60px auto;
-  padding: 24px;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+/* Fondo que ocupa toda la pantalla y centra la tarjeta */
+.fondo {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e9f5ff;
+}
+
+/* Tarjeta blanca del formulario */
+.tarjeta {
+  width: 360px;
+  padding: 32px;
+}
+
+h1 {
+  margin: 0;
+  text-align: center;
+  color: rgb(0, 153, 255);
+}
+
+.subtitulo {
+  margin-top: 4px;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #666;
 }
 
 .formulario {
@@ -13,22 +32,27 @@
   gap: 8px;
 }
 
+label {
+  font-weight: 500;
+}
+
 input {
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-size: 15px;
 }
 
 button {
-  margin-top: 10px;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  background-color: rgb(0, 153, 255);
-  color: white;
-  cursor: pointer;
+  margin-top: 16px;
 }
 
 .mensaje {
   color: #c62828;
+  text-align: center;
+}
+
+.enlace {
+  margin-top: 20px;
+  text-align: center;
 }

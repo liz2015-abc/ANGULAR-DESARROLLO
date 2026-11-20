@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { MenuComponent } from './views/menu/menu.component';
 
@@ -9,12 +9,12 @@ import { MenuComponent } from './views/menu/menu.component';
   templateUrl: './app.html',
 })
 export class App {
-  private router = inject(Router);
 
   // true = se muestra el menú lateral; false = se oculta (login y registro)
   protected mostrarMenu = signal(true);
 
-  constructor() {
+  // Angular nos entrega el Router a través del constructor
+  constructor(private router: Router) {
     // Cada vez que cambia la ruta, revisamos si estamos en login o registro
     this.router.events.subscribe((evento) => {
       if (evento instanceof NavigationEnd) {

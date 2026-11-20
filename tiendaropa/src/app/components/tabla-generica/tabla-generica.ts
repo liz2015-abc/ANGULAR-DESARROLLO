@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-tabla-generica',
   standalone: true,
-  imports: [],
+  imports: [MatTableModule],
   templateUrl: './tabla-generica.html',
   styleUrl: './tabla-generica.css'
 })

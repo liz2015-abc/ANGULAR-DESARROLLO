@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import { obtenerUsuarios, obtenerUsuarioPorId, crearUsuario, actualizarUsuario, eliminarUsuario } from '../controllers/usuario.controller';
+import { obtenerUsuarios } from '../controllers/usuario.controller';
+
 const router = Router();
+
+// GET /api/v1/usuario
 router.get('/', obtenerUsuarios);
-router.get('/:id', obtenerUsuarioPorId);
-router.post('/', crearUsuario);
-router.put('/:id', actualizarUsuario);
-router.delete('/:id', eliminarUsuario);
+
 export default router;

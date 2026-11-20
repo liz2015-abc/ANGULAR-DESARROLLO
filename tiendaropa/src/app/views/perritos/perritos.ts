@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PerritosService, Perrito } from '../../services/perritos.service';
 import { TablaGenerica } from '../../components/tabla-generica/tabla-generica';
 
@@ -11,12 +11,13 @@ import { TablaGenerica } from '../../components/tabla-generica/tabla-generica';
 })
 export class Perritos implements OnInit {
 
-  private perritosService = inject(PerritosService);
-
   perritos: Perrito[] = [];
 
   titulos = ['ID', 'Nombre', 'Color', 'Edad', 'Raza'];
   columnas = ['id', 'nombre', 'color', 'edad', 'raza'];
+
+  // Angular nos entrega el servicio a través del constructor
+  constructor(private perritosService: PerritosService) {}
 
   ngOnInit(): void {
     this.obtenerPerritos();
